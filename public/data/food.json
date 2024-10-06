@@ -1,22 +1,23 @@
+
 [
     {
       "id": 1,
       "name": "Tomate",
-      "image": "/images/tomato.png",
+      "image": "https://i.ibb.co/92yPHxg/tomato.png",
       "status": "good",
       "description": "El tomate es ideal para zonas templadas."
     },
     {
       "id": 2,
       "name": "Lechuga",
-      "image": "/images/lechuga.png",
+      "image": "https://i.ibb.co/H4QCcd9/lechuga.png",
       "status": "average",
       "description": "La lechuga puede crecer en varios climas, pero prefiere zonas frescas."
     },
     {
       "id": 3,
       "name": "Fresa",
-      "image": "/images/fresa.png",
+      "image": "https://i.ibb.co/hmJdYhJ/fresa.png",
       "status": "bad",
       "description": "La fresa no crece bien en climas muy cálidos."
     }

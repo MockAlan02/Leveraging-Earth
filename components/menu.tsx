@@ -14,7 +14,7 @@ export default function Menu({ bgColor, txtColor }: MenuProps): JSX.Element {
       } text-${txtColor ? txtColor : "white"} `}
     >
       <div className="flex items-center">
-        <h1>NASA</h1>
+        <h1>GIMC</h1>
       </div>
       <ul className={`flex space-x-8 `}>
         <li>
