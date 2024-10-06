@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
-import { Food } from '@/app/types/food'; // Asegúrate de que la ruta sea correcta
-import foodList from '../public/data/food.json'; // Importar el archivo JSON
-import { FaSearch } from 'react-icons/fa'; // Importar el icono de búsqueda de react-icons
+import { useEffect, useState } from "react";
+import { Food } from "@/app/types/food"; // Asegúrate de que la ruta sea correcta
+import foodList from "../public/data/food.json"; // Importar el archivo JSON
+import { FaSearch } from "react-icons/fa"; // Importar el icono de búsqueda de react-icons
+import Image from "next/image";
 
 export default function FoodList() {
   const [foods, setFoods] = useState<Food[]>([]); // Estado para todos los productos
   const [filteredFoods, setFilteredFoods] = useState<Food[]>([]); // Estado para productos filtrados
-  const [searchTerm, setSearchTerm] = useState(''); // Estado para el término de búsqueda
+  const [searchTerm, setSearchTerm] = useState(""); // Estado para el término de búsqueda
 
   useEffect(() => {
     // Cargar los datos del archivo JSON ubicado en la carpeta public
@@ -24,9 +25,10 @@ export default function FoodList() {
     setSearchTerm(value); // Actualizar el término de búsqueda
 
     // Filtrar los productos según el término de búsqueda
-    const filtered = foods.filter((food) =>
-      food.name.toLowerCase().includes(value) ||
-      food.description.toLowerCase().includes(value)
+    const filtered = foods.filter(
+      (food) =>
+        food.name.toLowerCase().includes(value) ||
+        food.description.toLowerCase().includes(value)
     );
     setFilteredFoods(filtered); // Actualizar los productos filtrados
   };
@@ -54,23 +56,29 @@ export default function FoodList() {
       <div className="flex flex-wrap justify-center gap-8">
         {filteredFoods.map((food) => (
           <div key={food.id} className="border p-4 max-w-sm">
-            <img src={food.image} alt={food.name} className="w-full h-60 object-cover" />
+            <Image
+              src={food.image}
+              alt={food.name}
+              className="w-full h-60 object-cover"
+              width={200} // Aquí defines el ancho
+              height={200}
+            />
             <h2 className="text-xl font-bold mt-4">{food.name}</h2>
             <p>{food.description}</p>
             <span
               className={`px-2 py-1 text-white rounded ${
-                food.status === 'good'
-                  ? 'bg-green-500'
-                  : food.status === 'average'
-                  ? 'bg-yellow-500'
-                  : 'bg-red-500'
+                food.status === "good"
+                  ? "bg-green-500"
+                  : food.status === "average"
+                  ? "bg-yellow-500"
+                  : "bg-red-500"
               }`}
             >
-              {food.status === 'good'
-                ? 'Buen alimento para la zona'
-                : food.status === 'average'
-                ? 'Alimento aceptable'
-                : 'Mal alimento para la zona'}
+              {food.status === "good"
+                ? "Buen alimento para la zona"
+                : food.status === "average"
+                ? "Alimento aceptable"
+                : "Mal alimento para la zona"}
             </span>
           </div>
         ))}

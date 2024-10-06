@@ -9,7 +9,19 @@ import Legend from './legend';
 // Componente de leyenda que ya habíamos creado
 
 interface MapComponentProps {
-  precipitationData: any; // La estructura de datos que proporcionaste
+  precipitationData: {
+    maps: {
+      entries: {
+        colors: string[];
+      };
+      legend: {
+        minLabel: string;
+        maxLabel: string;
+        title: string;
+        units: string;
+      };
+    }[];
+  }[];
 }
 
 const SnowRateLegend: FC<MapComponentProps> = ({ precipitationData }) => {

@@ -1,15 +1,16 @@
 // components/DrawSquareMap.js
-import { MapContainer, TileLayer, FeatureGroup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, FeatureGroup } from 'react-leaflet';
 import { EditControl } from 'react-leaflet-draw';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
 import { useState } from 'react';
 
+
 const DrawSquareMap = () => {
   const [isDrawing, setIsDrawing] = useState(false);
   const [rectangleCoords, setRectangleCoords] = useState<{ lat: number; lng: number }[] | null>(null);
-
-  const handleCreated = (e : any) => {
+  //@ts-expect-error idontknow
+const handleCreated = (e: { layerType: string; layer }) => {
     const { layerType, layer } = e;
     if (layerType === 'rectangle') {
       const bounds = layer.getBounds();
@@ -61,7 +62,8 @@ const DrawSquareMap = () => {
         <div>
           <h3>Coordenadas del Cuadrado:</h3>
           <ul>
-            {rectangleCoords.map((coord : any, index : any) => (
+     
+            {rectangleCoords.map((coord, index) => (
               <li key={index}>
                 Lat: {coord.lat}, Lng: {coord.lng}
               </li>

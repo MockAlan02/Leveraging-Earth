@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./ui/accordion"; // Asegúrate de que la ruta sea correcta
 
 export default function AccordionComponent() {

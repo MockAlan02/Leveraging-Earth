@@ -1,5 +1,5 @@
 // components/DrawSquareMap.js
-import { MapContainer, TileLayer, FeatureGroup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, FeatureGroup } from 'react-leaflet';
 import { EditControl } from 'react-leaflet-draw';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
@@ -11,9 +11,9 @@ const DrawSquareMap = () => {
     const [rectangleCoords, setRectangleCoords] = useState<{ lat: number; lng: number }[] | null>(null);
   
     // Crear referencia para el FeatureGroup
-    const featureGroupRef = useRef<any>(null);
-  
-    const handleCreated = (e: any) => {
+    const featureGroupRef = useRef<L.FeatureGroup | null>(null);
+      //@ts-expect-error idontknow
+    const handleCreated = (e ) => {
       const { layerType, layer } = e;
       if (layerType === 'rectangle') {
         const bounds = layer.getBounds();

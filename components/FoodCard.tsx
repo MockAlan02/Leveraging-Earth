@@ -2,7 +2,13 @@ import { Card, CardHeader, CardContent, CardFooter } from "./ui/card";
 import Image from "next/image";
 
 // Propiedades: imagen, nombre, estado (verde, rojo, amarillo)
-export default function FoodCard({ imageSrc, name, status }: any) {
+interface FoodCardProps {
+  imageSrc: string;
+  name: string;
+  status: "good" | "average" | "bad";
+}
+
+export default function FoodCard({ imageSrc, name, status }: FoodCardProps) {
   // Definir el color basado en el estado
   const statusColor = status === "good" 
     ? "bg-green-500" 

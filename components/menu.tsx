@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 
-export default function Menu({ bgColor, txtColor }: any): any {
+interface MenuProps {
+  bgColor?: string;
+  txtColor?: string;
+}
+
+export default function Menu({ bgColor, txtColor }: MenuProps): JSX.Element {
   return (
     <nav
       className={`flex items-center justify-between p-4 ${
